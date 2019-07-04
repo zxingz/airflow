@@ -168,11 +168,11 @@ aws = [
 ]
 azure = [
     'azure-storage>=0.34.0',
-    'azure-mgmt-resource==1.2.2',
-    'azure-mgmt-datalake-store==0.4.0',
-    'azure-datalake-store==0.0.19',
+    'azure-mgmt-resource>=2.2.0',
+    'azure-mgmt-datalake-store>=0.5.0',
+    'azure-datalake-store>=0.0.45',
     'azure-cosmos>=3.0.1',
-    'azure-mgmt-containerinstance',
+    'azure-mgmt-containerinstance>=1.5.0',
 ]
 cassandra = ['cassandra-driver>=3.13.0']
 celery = [
@@ -268,6 +268,7 @@ snowflake = ['snowflake-connector-python>=1.5.2',
 ssh = ['paramiko>=2.1.1', 'pysftp>=0.2.9', 'sshtunnel>=0.1.4,<0.2']
 statsd = ['statsd>=3.0.1, <4.0']
 vertica = ['vertica-python>=0.5.1']
+virtualenv = ['virtualenv']
 webhdfs = ['hdfs[dataframe,avro,kerberos]>=2.0.4']
 winrm = ['pywinrm==0.2.2']
 zendesk = ['zdesk']
@@ -307,7 +308,7 @@ devel_all = (sendgrid + devel + all_dbs + doc + samba + slack + crypto + oracle 
              docker + ssh + kubernetes + celery + redis + gcp + grpc +
              datadog + zendesk + jdbc + ldap + kerberos + password + webhdfs + jenkins +
              druid + pinot + segment + snowflake + elasticsearch +
-             atlas + azure + aws + salesforce + cgroups + papermill)
+             atlas + azure + aws + salesforce + cgroups + papermill + virtualenv)
 
 # Snakebite & Google Cloud Dataflow are not Python 3 compatible :'(
 if PY3:
@@ -429,8 +430,9 @@ def do_setup():
             'ssh': ssh,
             'statsd': statsd,
             'vertica': vertica,
+            'virtualenv': virtualenv,
             'webhdfs': webhdfs,
-            'winrm': winrm
+            'winrm': winrm,
         },
         classifiers=[
             'Development Status :: 5 - Production/Stable',
